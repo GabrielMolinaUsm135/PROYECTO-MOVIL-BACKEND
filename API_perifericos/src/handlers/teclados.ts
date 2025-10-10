@@ -1,8 +1,10 @@
 import { Request, Response } from "express";
+import Teclado from "../models/Teclado";
 
 
 export const getTeclados = async(request: Request, response:Response) => {
-    response.json('get Teclados');
+    const teclados = await Teclado.findAll();
+    response.json({teclados});
 }
 
 export const borrarTeclado = async(request: Request, response:Response) => {
